@@ -3,14 +3,6 @@ import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 
-//read file
-/*fs.readFile('./', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(data);
-});*/
 //resolve posts directory
 const postDir = path.resolve(__dirname, '../posts');
 //access posts directory
@@ -21,7 +13,15 @@ fs.readdir(postDir, function (err, files) {
   }
   //loop through files
   files.forEach(function (file) {
-    console.log(postDir + '/' + file);
+    //read file
+    fs.readFile(postDir + '/' + file, 'utf8', (err, data) => {
+      //catch failure
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(data);
+    });
   });
 });
 
