@@ -23,6 +23,8 @@ fs.readdir(postDir, function (err, files) {
       }
       console.log(kramed(data));
     });
+    //strip file extension
+    console.log(file.slice(0, -3));
   });
 });
 
