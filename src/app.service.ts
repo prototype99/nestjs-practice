@@ -4,6 +4,8 @@ import * as fs from 'fs';
 import * as kramed from 'kramed';
 import * as path from 'path';
 
+//initialise output
+let output = '';
 //resolve posts directory
 const postDir = path.resolve(__dirname, '../posts');
 //access posts directory, heavy inspiration from https://www.codegrepper.com/code-examples/javascript/nodejs+read+all+files+in+directory
@@ -12,8 +14,6 @@ fs.readdir(postDir, function (err, files) {
   if (err) {
     return console.log('Unable to scan directory: ' + err);
   }
-  //initialise output
-  let output = '';
   //loop through files
   files.forEach(function (file) {
     //read file, based on https://nodejs.dev/learn/reading-files-with-nodejs
@@ -23,7 +23,9 @@ fs.readdir(postDir, function (err, files) {
         console.error(err);
         return;
       }
-      console.log(kramed(data));
+      data = kramed(data);
+      console.log(data);
+      output += data;
     });
     //strip file extension
     console.log(file.slice(0, -3));
@@ -33,6 +35,6 @@ fs.readdir(postDir, function (err, files) {
 @Injectable()
 export class AppService {
   getAllPosts(): string {
-    return 'Hello World!';
+    return output;
   }
 }
