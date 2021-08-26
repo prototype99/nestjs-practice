@@ -5,7 +5,7 @@ import * as path from 'path';
 
 //resolve posts directory
 const postDir = path.resolve(__dirname, '../posts');
-//access posts directory
+//access posts directory, heavy inspiration from https://www.codegrepper.com/code-examples/javascript/nodejs+read+all+files+in+directory
 fs.readdir(postDir, function (err, files) {
   //catch failure
   if (err) {
@@ -13,7 +13,7 @@ fs.readdir(postDir, function (err, files) {
   }
   //loop through files
   files.forEach(function (file) {
-    //read file
+    //read file, based on https://nodejs.dev/learn/reading-files-with-nodejs
     fs.readFile(postDir + '/' + file, 'utf8', (err, data) => {
       //catch failure
       if (err) {
