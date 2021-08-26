@@ -11,15 +11,16 @@ import * as path from 'path';
   }
   console.log(data);
 });*/
+//resolve posts directory
 const postDir = path.resolve(__dirname, '../posts');
+//access posts directory
 fs.readdir(postDir, function (err, files) {
-  //handling error
+  //catch failure
   if (err) {
     return console.log('Unable to scan directory: ' + err);
   }
-  //listing all files using forEach
+  //loop through files
   files.forEach(function (file) {
-    // Do whatever you want to do with the file
     console.log(file);
   });
 });
