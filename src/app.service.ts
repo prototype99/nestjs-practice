@@ -1,6 +1,7 @@
 //import libs
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
+import * as kramed from 'kramed';
 import * as path from 'path';
 
 //resolve posts directory
@@ -20,7 +21,7 @@ fs.readdir(postDir, function (err, files) {
         console.error(err);
         return;
       }
-      console.log(data);
+      console.log(kramed(data));
     });
   });
 });
