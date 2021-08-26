@@ -8,8 +8,8 @@ export class AppController {
   @Get()
   @Render('index')
   render() {
-    const message = this.appService.getAllPosts();
-    return { message };
+    const list = this.appService.getAllPosts();
+    return { list };
   }
   @Get('post/:blogName')
   getBlogName(@Param() blogName): string {
