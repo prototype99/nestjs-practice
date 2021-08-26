@@ -12,6 +12,8 @@ fs.readdir(postDir, function (err, files) {
   if (err) {
     return console.log('Unable to scan directory: ' + err);
   }
+  //initialise output
+  let output = '';
   //loop through files
   files.forEach(function (file) {
     //read file, based on https://nodejs.dev/learn/reading-files-with-nodejs
