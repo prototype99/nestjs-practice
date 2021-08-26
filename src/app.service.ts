@@ -21,7 +21,7 @@ fs.readdir(postDir, function (err, files) {
   }
   //loop through files
   files.forEach(function (file) {
-    console.log(file);
+    console.log(postDir + '/' + file);
   });
 });
 
